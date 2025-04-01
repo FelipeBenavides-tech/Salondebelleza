@@ -1,28 +1,27 @@
-
-package model;
+package modelo;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 
 public class Conexion {
-    private static final String URL = "jdbc:postgresql://localhost:5432/salon_belleza";
-    private static final String USER = "postgres"; 
-    private static final String PASSWORD = "0000"; 
-    
-    public static Connection conectar() {
+    private final String URL = "jdbc:postgresql://localhost:5432/tu_base_de_datos";
+    private final String USER = "tu_usuario";
+    private final String PASSWORD = "tu_contraseña";
+
+    public Connection conectar() {
+        Connection con = null;
         try {
-            // Registrar el driver
-            Class.forName("org.postgresql.Driver");
-            // Establecer la conexión
-            return DriverManager.getConnection(URL, USER, PASSWORD);
+            Class.forName("org.postgresql.Driver"); // Asegúrate de que el driver esté cargado
+            con = DriverManager.getConnection(URL, USER, PASSWORD);
+            System.out.println("Conexión exitosa a la base de datos");
         } catch (ClassNotFoundException e) {
-            System.out.println("Error: No se pudo cargar el driver de PostgreSQL.");
+            System.err.println("Error: No se encontró el driver de PostgreSQL.");
             e.printStackTrace();
         } catch (SQLException e) {
-            System.out.println("Error: No se pudo conectar a la base de datos.");
+            System.err.println("Error al conectar a la base de datos.");
             e.printStackTrace();
         }
-        return null;
+        return con;
     }
 }

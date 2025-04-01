@@ -17,7 +17,7 @@ public class Usuario {
         this.apellido = apellido;
         this.correo = correo;
         this.contrasena = contrasena;
-        this.tipo = tipoUsuario;
+        this.tipoUsuario = tipoUsuario;
     }
 
     public int getUsuarioid() {
