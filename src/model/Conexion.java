@@ -1,13 +1,13 @@
-package modelo;
+package model;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 
 public class Conexion {
-    private final String URL = "jdbc:postgresql://localhost:5432/tu_base_de_datos";
-    private final String USER = "tu_usuario";
-    private final String PASSWORD = "tu_contraseña";
+    private final String URL = "jdbc:postgresql://localhost:5432/DbSalonDeBelleza";
+    private final String USER = "postgres";
+    private final String PASSWORD = "0000";
 
     public Connection conectar() {
         Connection con = null;
